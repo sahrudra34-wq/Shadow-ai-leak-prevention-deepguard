@@ -1,0 +1,44 @@
+DEEPGUARD ONEAPP v5.5.7 - WINDOWS
+
+1. Install Node.js 20+ (Python is NOT required).
+2. Extract this ZIP.
+3. Open the extracted `DeepGuard-OneApp-v5.5.7-FIXED` folder in VS Code.
+4. Open Terminal in that folder.
+5. Run `npm install`.
+6. Run `npm test`.
+7. Run `npm start`.
+
+DeepGuard starts the bundled Go proxy only after Protection is turned ON and the local HTTPS inspection check succeeds. No browser extension is required.
+
+FIRST RUN
+- DeepGuard opens with Protection OFF. This does not change your Windows network.
+- Turn Protection ON. The app verifies the local proxy and TLS inspection BEFORE enabling the Windows proxy.
+- Required for browser inspection: Proxy ACTIVE, AI routing ACTIVE, CA TRUSTED, TLS Inspection WORKING.
+- If the local proxy process exits unexpectedly, DeepGuard restores the normal Windows network automatically.
+- Restart Chrome/Edge after first-time CA setup.
+
+TEST PROMPT
+Please analyze this configuration:
+email = test@example.com
+phone = 9876543210
+api_key = sk-test-1234567890abcdef
+password = TestPassword123!
+
+Use fake test secrets only.
+
+DESKTOP APPS
+The network agent can inspect supported desktop apps that honor the Windows local inspection proxy and accept TLS inspection. Applications with certificate pinning, QUIC/custom networking, or proxy bypass may not be inspectable by a generic endpoint proxy. DeepGuard does not bypass those security controls.
+
+
+After installation:
+1. Close all Chrome/Edge windows.
+2. Start DeepGuard.
+3. Wait for the automatic health check to finish. Use Recheck only if you want to run it again.
+4. Wait for the real HTTPS probe to finish.
+5. If protection is verified, reopen Chrome/Edge.
+6. Use fake test data only for DLP testing.
+
+REPAIRING AN OLD PROXY
+- If Windows previously showed "Use setup script" with a DeepGuard address, close old DeepGuard processes and start v5.5.7.
+- Use the dashboard "Repair network" button once if needed.
+- v5.5.7 uses only the manual proxy 127.0.0.1:47822 while protection is ON; it does not install a PAC/setup script.

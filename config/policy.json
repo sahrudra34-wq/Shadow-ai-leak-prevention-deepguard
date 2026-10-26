@@ -1,0 +1,16 @@
+{
+  "protectedDestinations": [
+    "chatgpt.com",
+    "chat.openai.com",
+    "claude.ai",
+    "copilot.microsoft.com",
+    "perplexity.ai",
+    "cursor.com",
+    "api.openai.com",
+    "api.anthropic.com"
+  ],
+  "blockScore": 98,
+  "redactScore": 10,
+  "warnScore": 20,
+  "failClosed": true
+}

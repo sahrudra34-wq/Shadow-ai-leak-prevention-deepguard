@@ -1,0 +1,43 @@
+{
+  "name": "deepguard-oneapp",
+  "version": "5.5.7",
+  "private": true,
+  "description": "DeepGuard OneApp - Windows endpoint AI prompt DLP with a responsive protection switch and local inspection proxy.",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "node scripts/start.js",
+    "start:electron": "electron .",
+    "test": "node --test core/*.test.js",
+    "scan": "node core/dlp.js",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.2",
+    "electron-store": "^10.1.0"
+  },
+  "devDependencies": {
+    "electron": "^38.1.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.deepguard.oneapp",
+    "productName": "DeepGuard OneApp",
+    "files": [
+      "app/**/*",
+      "core/**/*",
+      "proxygo/**/*",
+      "config/**/*",
+      "scripts/**/*",
+      "docs/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
